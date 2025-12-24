@@ -1,12 +1,19 @@
-Greetings everypne this is the folder structue and file names you are supposed to follow 
+# System Architecture – CampusOR
 
-CampusOr/
+Greetings everyone!!  
+
+This document describes the **official folder structure and architectural organization** of the CampusOR project.  
+All contributors are expected to **strictly follow this structure and naming convention** to ensure consistency, scalability, and maintainability across the codebase.
+
+```txt
+CampusOR/
 │
 ├── README.md
 ├── .gitignore
-├── package.json                # root scripts (lint, format, etc.)
-├── contributors/
-│   └── vaidik.md               # contributor profiles
+├── package.json                # Root-level scripts (linting, formatting, tooling)
+│
+├── contributors/               # Contributor profiles
+│   └── vaidik.md
 │
 ├── frontend/                   # Next.js PWA client
 │   ├── package.json
@@ -19,23 +26,22 @@ CampusOr/
 │       ├── app/                # Next.js App Router
 │       │   ├── layout.tsx
 │       │   ├── globals.css
-│       │   │
-│       │   ├── (routes)/
-│       │   │   ├── landing/
-│       │   │   │   └── page.tsx
-│       │   │   ├── login/
-│       │   │   │   └── page.tsx
-│       │   │   ├── dashboard/
-│       │   │   │   └── page.tsx
-│       │   │   ├── queues/
-│       │   │   │   └── page.tsx
-│       │   │   └── kiosk/
-│       │   │       └── page.tsx
+│       │   └── (routes)/
+│       │       ├── landing/
+│       │       │   └── page.tsx
+│       │       ├── login/
+│       │       │   └── page.tsx
+│       │       ├── dashboard/
+│       │       │   └── page.tsx
+│       │       ├── queues/
+│       │       │   └── page.tsx
+│       │       └── kiosk/
+│       │           └── page.tsx
 │       │
-│       ├── components/
-│       │   ├── ui/              # buttons, modals, inputs
-│       │   ├── queue/           # queue list, token cards
-│       │   ├── charts/          # admin analytics
+│       ├── components/         # Reusable UI and domain components
+│       │   ├── ui/              # Buttons, modals, inputs
+│       │   ├── queue/           # Queue lists and token cards
+│       │   ├── charts/          # Admin analytics
 │       │   └── navbar/
 │       │
 │       ├── context/
@@ -45,8 +51,8 @@ CampusOr/
 │       │   └── useAuth.ts
 │       │
 │       ├── lib/
-│       │   ├── api.ts           # fetch / axios wrapper
-│       │   └── websocket.ts
+│       │   ├── api.ts           # API wrapper (fetch / axios)
+│       │   └── websocket.ts     # WebSocket client
 │       │
 │       ├── service-workers/
 │       │   └── sw.js            # PWA offline support
@@ -58,12 +64,12 @@ CampusOr/
 │   ├── package.json
 │   ├── tsconfig.json
 │   └── src/
-│       ├── app.ts              # express app
-│       ├── server.ts           # server bootstrap
+│       ├── app.ts              # Express app configuration
+│       ├── server.ts           # Server bootstrap
 │       │
 │       ├── config/
-│       │   ├── db.ts           # MongoDB connection
-│       │   └── env.ts
+│       │   ├── db.ts            # MongoDB connection
+│       │   └── env.ts           # Environment variables
 │       │
 │       ├── middlewares/
 │       │   ├── auth.middleware.ts
@@ -71,9 +77,9 @@ CampusOr/
 │       │   └── rateLimit.middleware.ts
 │       │
 │       ├── routes/
-│       │   └── index.ts
+│       │   └── index.ts         # Route registry
 │       │
-│       ├── modules/
+│       ├── modules/             # Domain-driven modules
 │       │   ├── auth/
 │       │   │   ├── auth.routes.ts
 │       │   │   ├── auth.controller.ts
@@ -95,7 +101,7 @@ CampusOr/
 │       │       └── whatsapp.service.ts
 │       │
 │       ├── server/
-│       │   └── socket.ts       # Socket.IO handlers
+│       │   └── socket.ts        # Socket.IO handlers
 │       │
 │       └── utils/
 │           ├── jwt.ts
@@ -109,7 +115,7 @@ CampusOr/
 │       └── services/
 │           └── predictor.py
 │
-├── shared/                     # shared contracts
+├── shared/                     # Shared contracts
 │   ├── types/
 │   │   ├── user.ts
 │   │   ├── queue.ts
@@ -117,17 +123,16 @@ CampusOr/
 │   └── schemas/
 │       └── zod.ts
 │
-├── infra/
+├── infra/                      # Infrastructure & deployment
 │   ├── docker-compose.yml
 │   ├── docker/
 │   │   ├── backend.Dockerfile
 │   │   ├── frontend.Dockerfile
 │   │   └── ml.Dockerfile
-│   │
 │   └── scripts/
 │       └── seed.ts
 │
-└── docs/
+└── docs/                       # Documentation
     ├── architecture.md
     ├── api.md
     └── websocket-events.md
